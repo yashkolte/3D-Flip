@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #fdc830, #f37335);
+}
+
+.card {
+    position: relative;
+    width: 300px;
+    height: 400px;
+    background: #fff;
+    transform-style: preserve-3d;
+    /* perspective: 1000px; */
+    transform: perspective(2000px);
+    transition: 1s;
+}
+.card:hover{
+    transform: perspective(2000px) translateX(50%);
+
+}
+.card .cover {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    overflow: hidden;
+    transition:  1s ease-in-out;
+    transform-origin: left;
+}
+
+.card:hover .cover {
+    transform: rotateY(-180deg);
+}
+.card .cover img{
+    max-width: 100%;
+    z-index: 1;
+}
+.card .cover::before {
+    content:'';
+    position: absolute;
+    width: 10px;
+    height: 150%;
+    background: #fff;
+    transform: rotate(36.5deg);
+    box-shadow: 0 0 0 20px rgb(235, 210, 72);
+    transition: 0.5s;
+}
+
+.card:hover .cover::before {
+    width: 0;
+    box-shadow: 0 0 0 250px rgb(235, 210, 72);
+    transform: rotate(143.5deg);
+}
+.details img,
+.cover img {
+    width: 90%;
+    height: 60%;
+    object-fit: cover;
+}
+
+.card .details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.card .details h3 {
+    font-weight: 500;
+    margin: 10px 0;
+}
+
+.card .details h2 {
+    font-size: 1.5em;
+    color: rgb(207, 41, 41);
+    font-weight: 600;
+}
+
+.card .details a {
+    display: inline-block;
+    padding: 8px 20px;
+    background: linear-gradient(to right, #fdc830, #f37335);
+    color: #fff;
+    margin-top: 5px;
+    letter-spacing: 1px;
+    border-radius: 25px;
+    text-decoration: none;
+}
